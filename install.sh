@@ -14,8 +14,15 @@ fi
 
 # install basic stuff
 yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
-  plex-media-server tixati gcc mesa nodejs yarn go spotify discord \
-  slack-desktop jdk8-openjdk antlr4
+  plex-media-server tixati gcc mesa nodejs npm yarn go spotify discord \
+  slack-desktop jdk8-openjdk cloc dos2unix
+
+# clock
+if ! [ -x "$(command -v ntpd)" ]; then
+  yay -Syu --needed ntp
+  systemctl enable ntpd
+  systemctl start ntpd
+fi
 
 # spotify ad block
 if ! [ -x "$(command -v spotify)" ] || ! [ -d /opt/spotify-ad-block ]; then
