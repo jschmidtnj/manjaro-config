@@ -23,9 +23,7 @@ if ! [ -x "$(command -v spotify)" ] || ! [ -d /opt/spotify-ad-block ]; then
   rm -rf spotify-ad-block
   sudo git clone https://github.com/x0uid/SpotifyAdBlock spotify-ad-block
   cd spotify-ad-block
-  sudo su
-  cat hosts >> /etc/hosts
-  exit
+  cat hosts | sudo tee -a /etc/hosts
 fi
 
 # install docker
@@ -47,5 +45,13 @@ if ! [ -x "$(command -v conda)" ]; then
   chmod +x conda_install.sh
   ./conda_install.sh
   rm -rf conda_install.sh
+fi
+
+# set default gpu
+gpu_set_file=/etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+if ! grep -xq "DRI_PRIME" $gpu_set_file; then
+  cat <<EOF | sudo tee -a $gpu_set_file
+DRI_PRIME=1
+EOF
 fi
 
