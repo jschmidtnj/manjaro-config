@@ -15,7 +15,7 @@ fi
 # install basic stuff
 yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
   plex-media-server tixati gcc mesa nodejs npm yarn go spotify discord \
-  slack-desktop jdk8-openjdk cloc dos2unix
+  slack-desktop jdk8-openjdk cloc dos2unix baobab
 
 # clock
 if ! [ -x "$(command -v ntpd)" ]; then
@@ -52,13 +52,5 @@ if ! [ -x "$(command -v conda)" ]; then
   chmod +x conda_install.sh
   ./conda_install.sh
   rm -rf conda_install.sh
-fi
-
-# set default gpu
-gpu_set_file=/etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-if ! grep -xq "DRI_PRIME" $gpu_set_file; then
-  cat <<EOF | sudo tee -a $gpu_set_file
-DRI_PRIME=1
-EOF
 fi
 
