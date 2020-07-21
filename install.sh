@@ -16,7 +16,7 @@ fi
 yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
   plex-media-server tixati gcc mesa nodejs npm yarn go spotify discord \
   slack-desktop jdk8-openjdk cloc dos2unix baobab postman insomnia \
-  xdotool wmctrl libinput-tools noto-fonts-emoji aws-cli
+  xdotool wmctrl libinput-tools noto-fonts-emoji aws-cli zoom
 
 # https://github.com/bulletmark/libinput-gestures
 sudo gpasswd -a $USER input
@@ -62,11 +62,10 @@ fi
 # install anaconda
 if ! [ -x "$(command -v conda)" ]; then
   yay -Syu --needed libxau libxi libxss libxtst libxcursor libxcomposite \
-    libxdamage libxfixes libxrandr libxrender mesa-libgl  alsa-lib libglvnd
+    libxdamage libxfixes libxrandr libxrender mesa-libgl alsa-lib libglvnd
   rm -rf conda_install.sh
   wget "$conda_link" -O conda_install.sh
   chmod +x conda_install.sh
   ./conda_install.sh
   rm -rf conda_install.sh
 fi
-
