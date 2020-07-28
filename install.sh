@@ -2,6 +2,8 @@
 
 conda_link="https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh"
 
+sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
+
 if ! [ -x "$(command -v yay)" ] || ! [ -d /opt/yay-git ]; then
   sudo pacman -Syu --needed git
   cd /opt
@@ -16,7 +18,8 @@ fi
 yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
   plex-media-server tixati gcc mesa nodejs npm yarn go spotify discord \
   slack-desktop jdk8-openjdk cloc dos2unix baobab postman insomnia \
-  xdotool wmctrl libinput-tools noto-fonts-emoji aws-cli zoom
+  xdotool wmctrl libinput-tools noto-fonts-emoji aws-cli zoom surfshark-vpn \
+  namcap gitkraken
 
 # https://github.com/bulletmark/libinput-gestures
 sudo gpasswd -a $USER input
