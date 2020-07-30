@@ -15,11 +15,13 @@ if ! [ -x "$(command -v yay)" ] || ! [ -d /opt/yay-git ]; then
 fi
 
 # install basic stuff
-yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
+yay -Syu --needed vim visual-studio-code-bin icaclient google-chrome vlc \
   plex-media-server tixati gcc mesa nodejs npm yarn go spotify discord \
   slack-desktop jdk8-openjdk cloc dos2unix baobab postman insomnia \
   xdotool wmctrl libinput-tools noto-fonts-emoji aws-cli zoom surfshark-vpn \
-  namcap gitkraken balena-etcher tigervnc
+  namcap gitkraken balena-etcher tigervnc chromium krdc remmina
+
+git config --global core.editor "vim"
 
 # https://github.com/bulletmark/libinput-gestures
 sudo gpasswd -a $USER input
