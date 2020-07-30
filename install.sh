@@ -15,11 +15,17 @@ if ! [ -x "$(command -v yay)" ] || ! [ -d /opt/yay-git ]; then
 fi
 
 # install basic stuff
-yay -Syu --needed vim visual-studio-code-bin icaclient google-chrome vlc \
-  plex-media-server tixati gcc mesa nodejs npm yarn go spotify discord \
+yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
+  vim remmina tixati gcc mesa nodejs npm yarn go spotify discord \
   slack-desktop jdk8-openjdk cloc dos2unix baobab postman insomnia \
-  xdotool wmctrl libinput-tools noto-fonts-emoji aws-cli zoom surfshark-vpn \
-  namcap gitkraken balena-etcher tigervnc chromium krdc remmina
+  xdotool wmctrl libinput-gestures noto-fonts-emoji aws-cli zoom surfshark-vpn \
+  namcap gitkraken balena-etcher tigervnc chromium krdc
+
+# install pelx
+yay -Syu --needed plex-media-server
+sudo systemctl enable plexmediaserver
+sudo systemctl start plexmediaserver
+sudo mkdir /media
 
 git config --global core.editor "vim"
 
@@ -50,8 +56,10 @@ if ! [ -x "$(command -v spotify)" ] || ! [ -d /opt/spotify-ad-block ]; then
   cd /opt
   rm -rf spotify-ad-block
   sudo git clone https://github.com/x0uid/SpotifyAdBlock spotify-ad-block
-  cd spotify-ad-block
+  cd -
+  cd /opt/spotify-ad-block
   cat hosts | sudo tee -a /etc/hosts
+  cd -
 fi
 
 # install docker
