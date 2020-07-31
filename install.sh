@@ -19,7 +19,7 @@ yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
   plex-media-server tixati gcc mesa nodejs npm yarn go spotify discord \
   slack-desktop jdk8-openjdk cloc dos2unix baobab postman insomnia \
   xdotool wmctrl libinput-tools noto-fonts-emoji aws-cli zoom surfshark-vpn \
-  namcap gitkraken
+  namcap gitkraken balena-etcher tigervnc
 
 # https://github.com/bulletmark/libinput-gestures
 sudo gpasswd -a $USER input
