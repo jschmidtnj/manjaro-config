@@ -19,9 +19,14 @@ yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
   vim remmina tixati gcc mesa nodejs npm yarn go spotify discord \
   slack-desktop jdk8-openjdk cloc dos2unix baobab postman insomnia \
   xdotool wmctrl libinput-gestures noto-fonts-emoji aws-cli zoom surfshark-vpn \
-  namcap gitkraken balena-etcher tigervnc chromium krdc
+  namcap gitkraken balena-etcher tigervnc chromium krdc unzip \
+  foldingathome
 
-# install pelx
+# install boinc (seti)
+yay -Syu --needed boinc
+usermod -a -G boinc $(whoami)
+
+# install plex
 yay -Syu --needed plex-media-server
 sudo systemctl enable plexmediaserver
 sudo systemctl start plexmediaserver
