@@ -1,0 +1,3 @@
+[submodule "systemd-ngrok"]
+	path = systemd-ngrok
+	url = https://github.com/vincenthsu/systemd-ngrok
