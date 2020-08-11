@@ -2,6 +2,10 @@
 
 conda_link="https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh"
 
+# sudo vim /etc/pacman.d/mirrorlist
+# latest packages
+## Country : United_States
+# Server = https://mirrors.edge.kernel.org/archlinux/$repo/os/$arch
 sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
 
 if ! [ -x "$(command -v yay)" ] || ! [ -d /opt/yay-git ]; then
