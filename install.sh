@@ -43,7 +43,7 @@ sudo gpasswd -a $USER input
 libinput-gestures-setup autostart
 
 # mongo
-if ! [ -x "$(command -v ntpd)" ]; then
+if ! [ -x "$(command -v mongod)" ]; then
   # add key manually for lib curl (temporary)
   gpg --keyserver keyserver.ubuntu.com --recv-key \
     27EDEAF22F3ABCEB50DB9A125CC908FDB71E12C2
@@ -91,3 +91,13 @@ if ! [ -x "$(command -v conda)" ]; then
   ./conda_install.sh
   rm -rf conda_install.sh
 fi
+
+# increase page watchers
+# from https://gist.github.com/joseluisq/7f60f51b4570acac4a2ab5cecef31daa
+echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/50-max-user-watches.conf && sudo sysctl --system
+
+# add awesome vim
+# https://github.com/amix/vimrc
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+
