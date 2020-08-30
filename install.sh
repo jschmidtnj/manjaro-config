@@ -24,7 +24,17 @@ yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
   slack-desktop jdk8-openjdk cloc dos2unix baobab postman insomnia \
   xdotool wmctrl libinput-gestures noto-fonts-emoji aws-cli zoom surfshark-vpn \
   namcap gitkraken balena-etcher tigervnc chromium krdc unzip \
-  foldingathome plex-media-server
+  foldingathome plex-media-server gimp
+
+# install arduino
+if ! [ -x "$(command -v arduino)" ]; then
+  yay -Syu --needed arduino arduino-avr-core
+  user=$(whoami)
+  sudo usermod -a -G dialout $user
+  sudo usermod -a -G tty $user
+  sudo usermod -a -G lock $user
+  sudo usermod -a -G uucp $user
+fi
 
 # install boinc (seti)
 yay -Syu --needed boinc
