@@ -24,7 +24,7 @@ yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
   slack-desktop jdk8-openjdk cloc dos2unix baobab postman insomnia \
   xdotool wmctrl libinput-gestures noto-fonts-emoji aws-cli zoom surfshark-vpn \
   namcap gitkraken balena-etcher tigervnc chromium krdc unzip \
-  foldingathome plex-media-server gimp git-lfs audacity
+  foldingathome plex-media-server gimp git-lfs audacity stellarium
 
 # install arduino
 if ! [ -x "$(command -v arduino)" ]; then
@@ -101,6 +101,10 @@ if ! [ -x "$(command -v conda)" ]; then
   ./conda_install.sh
   rm -rf conda_install.sh
 fi
+
+# update conda
+conda update -n base conda
+conda update --all
 
 # increase page watchers
 # from https://gist.github.com/joseluisq/7f60f51b4570acac4a2ab5cecef31daa
