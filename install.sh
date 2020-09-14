@@ -72,6 +72,7 @@ fi
 if ! [ -x "$(command -v nvidia-settings)" ]; then
   mhwd -l
   sudo mhwd -i pci video-nvidia-450xx
+  yay -Syu --needed cuda cudnn
 fi
 
 # clock
