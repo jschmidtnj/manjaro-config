@@ -70,7 +70,6 @@ fi
 # needs a reboot to take effect
 if ! [ -x "$(command -v nvidia-settings)" ]; then
   yay -Syu --needed nvidia
-  sudo nvidia-xconfig
 fi
 
 # clock
