@@ -67,9 +67,11 @@ fi
 # nvidia driver
 # https://wiki.archlinux.org/index.php/NVIDIA
 # for version: https://www.nvidia.com/Download/index.aspx
+# https://wiki.manjaro.org/index.php?title=Configure_NVIDIA_(non-free)_settings_and_load_them_on_Startup
 # needs a reboot to take effect
 if ! [ -x "$(command -v nvidia-settings)" ]; then
-  yay -Syu --needed nvidia
+  mhwd -l
+  sudo mhwd -i pci video-nvidia-450xx
 fi
 
 # clock
