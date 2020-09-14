@@ -24,7 +24,8 @@ yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
   slack-desktop jdk8-openjdk cloc dos2unix baobab postman insomnia \
   xdotool wmctrl libinput-gestures noto-fonts-emoji aws-cli zoom surfshark-vpn \
   namcap gitkraken balena-etcher tigervnc chromium krdc unzip \
-  foldingathome plex-media-server gimp git-lfs audacity stellarium
+  foldingathome plex-media-server gimp git-lfs audacity stellarium \
+  texlive-most
 
 # install arduino
 if ! [ -x "$(command -v arduino)" ]; then
@@ -61,6 +62,15 @@ if ! [ -x "$(command -v mongod)" ]; then
   sudo systemctl enable mongodb
   sudo systemctl start mongodb
   yay -Syu mongodb-compass
+fi
+
+# nvidia driver
+# https://wiki.archlinux.org/index.php/NVIDIA
+# for version: https://www.nvidia.com/Download/index.aspx
+# needs a reboot to take effect
+if ! [ -x "$(command -v nvidia-settings)" ]; then
+  yay -Syu --needed nvidia
+  sudo nvidia-xconfig
 fi
 
 # clock
