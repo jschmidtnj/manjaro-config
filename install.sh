@@ -25,7 +25,7 @@ yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
   xdotool wmctrl libinput-gestures noto-fonts-emoji aws-cli zoom surfshark-vpn \
   namcap gitkraken balena-etcher tigervnc chromium krdc unzip \
   foldingathome plex-media-server gimp git-lfs audacity stellarium \
-  texlive-most
+  texlive-most masterpdfeditor
 
 # install arduino
 if ! [ -x "$(command -v arduino)" ]; then
