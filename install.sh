@@ -43,10 +43,15 @@ yay -Syu --needed boinc
 usermod -a -G boinc $(whoami)
 
 # install plex
-yay -Syu --needed plex-media-server
-sudo systemctl enable plexmediaserver
-sudo systemctl start plexmediaserver
-sudo mkdir /media
+if ! [ -x "plex" ]; then
+  yay -Syu --needed plex-media-server
+  sudo chown -R joshua:joshua /var/lib/plex
+  # change user and group to current username in below file:
+  sudo vim usr/lib/systemd/system/plexmediaserver.service
+  sudo systemctl enable plexmediaserver
+  sudo systemctl start plexmediaserver
+  sudo mkdir /media
+fi
 
 git config --global core.editor "vim"
 
