@@ -1,6 +1,6 @@
 #!/bin/bash
 
-conda_link="https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh"
+conda_link="https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh"
 
 # sudo vim /etc/pacman.d/mirrorlist
 # latest packages
@@ -121,6 +121,9 @@ if ! [ -x "$(command -v conda)" ]; then
 fi
 
 # update conda
+# hard to update python version
+# see https://stackoverflow.com/a/42104196
+conda update anaconda
 conda update -n base conda
 conda update --all
 
@@ -132,4 +135,3 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/50-max-user-wat
 # https://github.com/amix/vimrc
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
-
