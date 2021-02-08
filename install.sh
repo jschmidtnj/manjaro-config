@@ -21,12 +21,16 @@ fi
 
 # install basic stuff
 yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
-  vim remmina tixati gcc mesa nodejs npm yarn go spotify discord \
-  slack-desktop jdk8-openjdk cloc dos2unix baobab postman insomnia \
+  vim remmina tixati gcc mesa go spotify discord \
+  slack-desktop jdk8-openjdk cloc dos2unix baobab postman-bin insomnia \
   xdotool wmctrl libinput-gestures noto-fonts-emoji aws-cli zoom surfshark-vpn \
   namcap gitkraken balena-etcher tigervnc chromium krdc unzip \
   foldingathome plex-media-server gimp git-lfs audacity stellarium \
   texlive-most masterpdfeditor-free antlr4 zip celestia
+
+# fix permissions for node + npm
+# see https://github.com/mklement0/n-install
+sudo chown -R $(whoami) /usr/lib/node_modules
 
 # install arduino
 if ! [ -x "$(command -v arduino)" ]; then
