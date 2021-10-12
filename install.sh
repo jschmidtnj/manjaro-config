@@ -1,6 +1,6 @@
 #!/bin/bash
 
-conda_link="https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh"
+conda_link="https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh"
 
 # sudo vim /etc/pacman.d/mirrorlist
 # latest packages
@@ -8,25 +8,17 @@ conda_link="https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh"
 # Server = https://mirrors.edge.kernel.org/archlinux/$repo/os/$arch
 sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
 
-if ! [ -x "$(command -v yay)" ] || ! [ -d /opt/yay-git ]; then
-  sudo pacman -Syu --needed git
-  cd /opt
-  sudo rm -rf yay-git
-  sudo git clone https://aur.archlinux.org/yay-git.git
-  user=$(whoami)
-  sudo chown -R $user:$user ./yay-git
-  cd yay-git
+if ! [ -x "$(command -v yay)" ]; then
+  pacman -S --needed git base-devel
+  git clone https://aur.archlinux.org/yay-bin.git
+  cd yay-bin
   makepkg -si
+  cd -
+  rm -rf yay-bin
 fi
 
 # install basic stuff
-yay -Syu --needed visual-studio-code-bin icaclient google-chrome vlc \
-  vim remmina tixati gcc mesa go spotify discord \
-  slack-desktop jdk8-openjdk cloc dos2unix baobab postman-bin insomnia \
-  xdotool wmctrl libinput-gestures noto-fonts-emoji aws-cli zoom surfshark-vpn \
-  namcap gitkraken balena-etcher tigervnc chromium krdc unzip \
-  foldingathome plex-media-server gimp git-lfs audacity stellarium \
-  texlive-most masterpdfeditor-free antlr4 zip celestia
+yay -S - < pkglist.txt
 
 # fix permissions for node + npm
 # see https://github.com/mklement0/n-install
@@ -45,17 +37,6 @@ fi
 # install boinc (seti)
 yay -Syu --needed boinc
 usermod -a -G boinc $(whoami)
-
-# install plex
-if ! [ -x "plex" ]; then
-  yay -Syu --needed plex-media-server
-  sudo chown -R joshua:joshua /var/lib/plex
-  # change user and group to current username in below file:
-  sudo vim /usr/lib/systemd/system/plexmediaserver.service
-  sudo systemctl enable plexmediaserver
-  sudo systemctl start plexmediaserver
-  sudo mkdir /media
-fi
 
 git config --global core.editor "vim"
 
@@ -139,3 +120,4 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/50-max-user-wat
 # https://github.com/amix/vimrc
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
+

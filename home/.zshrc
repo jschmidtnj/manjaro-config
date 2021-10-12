@@ -1,11 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-source ~/.profile
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/joshua/.oh-my-zsh"
@@ -14,24 +8,7 @@ export ZSH="/home/joshua/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/joshua/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/joshua/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/joshua/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/joshua/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export PATH="$PATH:/home/joshua/go/bin"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,6 +45,8 @@ export PATH="$PATH:/home/joshua/go/bin"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -91,7 +70,10 @@ export PATH="$PATH:/home/joshua/go/bin"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -121,35 +103,26 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source $HOME/.profile
 
-###-begin-rescribe-completions-###
-#
-# yargs command completion script
-#
-# Installation: rescribe completion >> ~/.bashrc
-#    or rescribe completion >> ~/.bash_profile on OSX.
-#
-_yargs_completions()
-{
-    local cur_word args type_list
 
-    cur_word="${COMP_WORDS[COMP_CWORD]}"
-    args=("${COMP_WORDS[@]}")
-
-    # ask yargs to generate completions.
-    type_list=$(rescribe --get-yargs-completions "${args[@]}")
-
-    COMPREPLY=( $(compgen -W "${type_list}" -- ${cur_word}) )
-
-    # if no match was found, fall back to filename completion
-    if [ ${#COMPREPLY[@]} -eq 0 ]; then
-      COMPREPLY=()
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/joshua/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/joshua/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/joshua/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/joshua/anaconda3/bin:$PATH"
     fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-    return 0
-}
-complete -o default -F _yargs_completions rescribe
-###-end-rescribe-completions-###
 
+export PATH="$HOME/.poetry/bin:$PATH"
+
+# opam configuration
+[[ ! -r /home/joshua/.opam/opam-init/init.zsh ]] || source /home/joshua/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
