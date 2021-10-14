@@ -1,0 +1,162 @@
+{
+  "CreatedByVersion": "2.0.6.100",
+  "Schedule": {
+    "ID": 1,
+    "Tags": [
+      "ID=1"
+    ],
+    "Time": "2021-10-15T07:00:00Z",
+    "Repeat": "1W",
+    "LastRun": "2021-10-08T07:00:00Z",
+    "Rule": "AllowedWeekDays=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",
+    "AllowedDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri",
+      "sat",
+      "sun"
+    ]
+  },
+  "Backup": {
+    "ID": "1",
+    "Name": "framework",
+    "Description": "",
+    "Tags": [],
+    "TargetURL": "googledrive://framework_backup",
+    "DBPath": "/root/.config/Duplicati/TQKVJYKKYL.sqlite",
+    "Sources": [
+      "/home/",
+      "/opt/",
+      "/root/",
+      "/srv/",
+      "/usr/",
+      "/var/",
+      "/etc/"
+    ],
+    "Settings": [
+      {
+        "Filter": "",
+        "Name": "encryption-module",
+        "Value": "aes",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "compression-module",
+        "Value": "zip",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "dblock-size",
+        "Value": "50mb",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "keep-versions",
+        "Value": "3",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "--exclude-files-attributes",
+        "Value": "temporary",
+        "Argument": null
+      }
+    ],
+    "Filters": [
+      {
+        "Order": 0,
+        "Include": false,
+        "Expression": "/home/joshua/googledrive/"
+      },
+      {
+        "Order": 1,
+        "Include": false,
+        "Expression": "/home/joshua/.cache/"
+      },
+      {
+        "Order": 2,
+        "Include": false,
+        "Expression": "/home/joshua/Videos/movies/"
+      },
+      {
+        "Order": 3,
+        "Include": false,
+        "Expression": "/home/joshua/Videos/tv/"
+      },
+      {
+        "Order": 4,
+        "Include": false,
+        "Expression": "/home/joshua/Music/"
+      },
+      {
+        "Order": 5,
+        "Include": false,
+        "Expression": "/home/joshua/.local/share/Trash/"
+      },
+      {
+        "Order": 6,
+        "Include": false,
+        "Expression": "/home/joshua/.gdfuse/"
+      },
+      {
+        "Order": 7,
+        "Include": false,
+        "Expression": "/srv/deluge/Downloads/"
+      },
+      {
+        "Order": 8,
+        "Include": false,
+        "Expression": "/root/.config/Duplicati/"
+      },
+      {
+        "Order": 9,
+        "Include": false,
+        "Expression": "/var/tmp/"
+      },
+      {
+        "Order": 10,
+        "Include": false,
+        "Expression": "/var/run/"
+      },
+      {
+        "Order": 11,
+        "Include": false,
+        "Expression": "/var/lock/"
+      }
+    ],
+    "Metadata": {
+      "LastBackupDate": "20211012T030457Z",
+      "BackupListCount": "3",
+      "TotalQuotaSpace": "11134197267789",
+      "FreeQuotaSpace": "10995116277760",
+      "AssignedQuotaSpace": "-1",
+      "TargetFilesSize": "131808748493",
+      "TargetFilesCount": "5025",
+      "TargetSizeString": "122.76 GB",
+      "SourceFilesSize": "126146150026",
+      "SourceFilesCount": "1382234",
+      "SourceSizeString": "117.48 GB",
+      "LastBackupStarted": "20211012T030457Z",
+      "LastBackupFinished": "20211012T034756Z",
+      "LastBackupDuration": "00:42:58.9610070",
+      "LastCompactDuration": "00:05:41.0818630",
+      "LastCompactStarted": "20211012T034046Z",
+      "LastCompactFinished": "20211012T034628Z"
+    },
+    "IsTemporary": false
+  },
+  "DisplayNames": {
+    "/home/": "home",
+    "/opt/": "opt",
+    "/root/": "root",
+    "/srv/": "srv",
+    "/usr/": "usr",
+    "/var/": "var",
+    "/etc/": "etc"
+  }
+}
