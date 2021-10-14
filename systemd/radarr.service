@@ -1,0 +1,13 @@
+[Unit]
+Description=Radarr Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+# User=radarr
+# Group=radarr
+ExecStart=/usr/lib/radarr/bin/Radarr -nobrowser -data=/var/lib/radarr
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

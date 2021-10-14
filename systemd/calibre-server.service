@@ -1,0 +1,13 @@
+## startup service
+[Unit]
+Description=calibre content server
+After=network.target
+
+[Service]
+Type=simple
+# User=joshua
+# Group=joshua
+ExecStart=/usr/bin/calibre-server /home/joshua/Documents/books --enable-local-write --userdb /home/joshua/.config/calibre/server-users.sqlite --enable-auth
+
+[Install]
+WantedBy=multi-user.target
