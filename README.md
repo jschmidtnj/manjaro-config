@@ -6,3 +6,4 @@ configuration for manjaro
 
 problems with backlight laptop: https://forum.manjaro.org/t/unable-to-change-screen-brightness-after-reboot/38224/10
 
+ftp server: https://yassinecherief.com/posts/setup-ftp-and-ftps-server-on-archlinux-server/
