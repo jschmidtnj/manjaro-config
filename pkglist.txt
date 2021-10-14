@@ -84,6 +84,7 @@ flutter
 foldingathome
 fprintd
 freecad
+freerdp
 frpc-bin
 fwupd
 gawk
@@ -192,6 +193,7 @@ libva-mesa-driver
 libva-vdpau-driver
 licenses
 lidarr
+linux510
 linux514
 logrotate
 lvm2
@@ -243,6 +245,7 @@ networkmanager-vpnc
 nfs-utils
 nginx-mainline
 nmap
+nomachine
 noto-fonts
 noto-fonts-emoji
 nss-mdns
@@ -297,6 +300,7 @@ procps-ng
 psmisc
 pulseaudio-bluetooth
 pulseaudio-ctl
+pulseaudio-module-xrdp
 pulseaudio-zeroconf
 python-pillow
 python-pip
@@ -366,7 +370,6 @@ texlive-publishers
 texlive-science
 thermald
 thunderbird
-tigervnc
 timeshift
 timeshift-autosnap-manjaro
 tixati
@@ -426,6 +429,8 @@ xorg-twm
 xorg-xinit
 xorg-xinput
 xorg-xkill
+xorgxrdp-glamor
+xrdp-bin-git
 xz
 yakuake
 yay
