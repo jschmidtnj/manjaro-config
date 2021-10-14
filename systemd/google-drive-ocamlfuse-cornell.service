@@ -1,0 +1,15 @@
+[Unit]
+Description=FUSE filesystem over Google Drive
+After=network.target
+
+[Service]
+User=joshua
+Group=joshua
+ExecStart=/home/joshua/.opam/default/bin/google-drive-ocamlfuse -label cornell /home/joshua/googledrive/cornell -o allow_other
+ExecStop=/usr/bin/fusermount -u cornell
+# Restart=always
+Type=forking
+
+[Install]
+WantedBy=multi-user.target
+
