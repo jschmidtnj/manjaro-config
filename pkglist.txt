@@ -38,7 +38,6 @@ calibre
 cdparanoia
 cdrdao
 celestia
-coppeliasim
 coreutils
 cpupower
 crda

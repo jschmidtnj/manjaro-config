@@ -1,0 +1,144 @@
+{
+  "CreatedByVersion": "2.0.6.100",
+  "Schedule": {
+    "ID": 1,
+    "Tags": [
+      "ID=1"
+    ],
+    "Time": "2021-10-15T07:00:00Z",
+    "Repeat": "1W",
+    "LastRun": "2021-10-08T07:00:00Z",
+    "Rule": "AllowedWeekDays=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",
+    "AllowedDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri",
+      "sat",
+      "sun"
+    ]
+  },
+  "Backup": {
+    "ID": "1",
+    "Name": "jarvis-3",
+    "Description": "",
+    "Tags": [],
+    "TargetURL": "googledrive://jarvis_3_backup",
+    "DBPath": "/var/lib/duplicati/.config/Duplicati/JDOEMGHERU.sqlite",
+    "Sources": [
+      "/home/",
+      "/opt/",
+      "/root/",
+      "/srv/",
+      "/usr/",
+      "/var/",
+      "/etc/"
+    ],
+    "Settings": [
+      {
+        "Filter": "",
+        "Name": "encryption-module",
+        "Value": "aes",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "compression-module",
+        "Value": "zip",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "dblock-size",
+        "Value": "50mb",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "keep-versions",
+        "Value": "3",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "--exclude-files-attributes",
+        "Value": "temporary",
+        "Argument": null
+      }
+    ],
+    "Filters": [
+      {
+        "Order": 0,
+        "Include": false,
+        "Expression": "/home/joshua/googledrive/"
+      },
+      {
+        "Order": 1,
+        "Include": false,
+        "Expression": "/home/joshua/.cache/"
+      },
+      {
+        "Order": 2,
+        "Include": false,
+        "Expression": "/home/joshua/Videos/movies/"
+      },
+      {
+        "Order": 3,
+        "Include": false,
+        "Expression": "/home/joshua/Videos/tv/"
+      },
+      {
+        "Order": 4,
+        "Include": false,
+        "Expression": "/home/joshua/Music/"
+      },
+      {
+        "Order": 5,
+        "Include": false,
+        "Expression": "/home/joshua/.local/share/Trash/"
+      },
+      {
+        "Order": 6,
+        "Include": false,
+        "Expression": "/home/joshua/.gdfuse/"
+      },
+      {
+        "Order": 7,
+        "Include": false,
+        "Expression": "/srv/deluge/Downloads/"
+      },
+      {
+        "Order": 8,
+        "Include": false,
+        "Expression": "/root/.config/Duplicati/"
+      },
+      {
+        "Order": 9,
+        "Include": false,
+        "Expression": "/var/tmp/"
+      },
+      {
+        "Order": 10,
+        "Include": false,
+        "Expression": "/var/run/"
+      },
+      {
+        "Order": 11,
+        "Include": false,
+        "Expression": "/var/lock/"
+      }
+    ],
+    "Metadata": {},
+    "IsTemporary": false
+  },
+  "DisplayNames": {
+    "/home/": "home",
+    "/opt/": "opt",
+    "/root/": "root",
+    "/srv/": "srv",
+    "/usr/": "usr",
+    "/var/": "var",
+    "/etc/": "etc"
+  }
+}

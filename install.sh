@@ -2,6 +2,11 @@
 
 conda_link="https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh"
 
+# https://github.com/arch4edu/arch4edu/wiki/Add-arch4edu-to-your-Archlinux
+vim /etc/pacman.conf
+# https://github.com/arch4edu/mirrorlist/blob/master/mirrorlist.arch4edu
+# Server = https://arch4edu.keybase.pub/$arch
+
 # sudo vim /etc/pacman.d/mirrorlist
 # latest packages
 ## Country : United_States
@@ -9,7 +14,7 @@ conda_link="https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh"
 sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
 
 if ! [ -x "$(command -v yay)" ]; then
-  pacman -S --needed git base-devel
+  sudo pacman -S --needed git base-devel
   git clone https://aur.archlinux.org/yay-bin.git
   cd yay-bin
   makepkg -si
@@ -17,8 +22,15 @@ if ! [ -x "$(command -v yay)" ]; then
   rm -rf yay-bin
 fi
 
+# if it gets stuck, run makepkg -si in ~/.cache/yay/<package_name>/
+# then yay -S <package_name>
+# update sha with mkpkgsha
 # install basic stuff
 yay -S - < pkglist.txt
+
+# google drive ocamlfuse
+opam init
+opam install google-drive-ocamlfuse
 
 # fix permissions for node + npm
 # see https://github.com/mklement0/n-install
